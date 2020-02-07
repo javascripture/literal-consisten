@@ -114,8 +114,6 @@ function generateObject() {
     var file = fs.readFileSync( 'literalconsistent.csv', 'utf-8' );
     if (file) {
         var listOfWords = file.split('\r\n');
-        listOfWords.shift();
-        //console.log( listOfWords );
         listOfWords.forEach( word => {
             var wordArray = word.split( ',' );
             if ( ! words[ wordArray[0] ] ) {
@@ -129,7 +127,7 @@ function generateObject() {
             words[ wordArray[0] ][ wordArray[1] ][ wordArray[2] ] = wordArray[4];
         } );
 
-        fs.writeFile('./data/LC.js', 'var literalConsistent = ' + JSON.stringify( words ) + ';module.exports=literalConsistent;', function() { console.log( 'inport done - created data/LC.js' ) } );
+        fs.writeFile('LC.js', 'var literalConsistent = ' + JSON.stringify( words ) + ';module.exports=literalConsistent;', function() { console.log( 'inport done - created data/LC.js' ) } );
     }
 }
 if ( process.argv[2] === 'import') {
