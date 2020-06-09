@@ -127,7 +127,9 @@ function generateObject() {
             words[ wordArray[0] ][ wordArray[1] ][ wordArray[2] ] = wordArray[4];
         } );
 
-        fs.writeFile('LC.js', 'var literalConsistent = ' + JSON.stringify( words ) + ';module.exports=literalConsistent;', function() { console.log( 'inport done - created data/LC.js' ) } );
+        fs.writeFile('LC.js', 'var literalConsistent = ' + JSON.stringify( words ) + ';module.exports=literalConsistent;', function() { console.log( 'inport done - created LC.js' ) } );
+    } else {
+        console.log( 'File not found' );
     }
 }
 if ( process.argv[2] === 'import') {
